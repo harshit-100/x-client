@@ -8,9 +8,7 @@ import { BsCardList } from "react-icons/bs";
 import { LiaBookmarkSolid } from "react-icons/lia";
 import { TbUsers } from "react-icons/tb";
 import { AiOutlineUser } from "react-icons/ai";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import FeedCard from "@/components/FeedCard";
 
 interface TwitterSidebarButton {
   title: string;
@@ -37,18 +35,18 @@ export default function Home() {
   return (
     <div>
       <div className="grid grid-cols-12 h-screen w-screen px-56">
-        <div className=" col-span-3  pt-2 px-4">
+        <div className=" col-span-3  pt-2 px-4 ml-28">
           <div className="text-4xl h-fit hover:bg-gray-600 rounded-full p-2 w-fit cursor-pointer transition-all">
             <RiTwitterXFill />
           </div>
-          <div className="mt-4 text-2xl font-bold">
+          <div className="mt-1 text-xl font-bold">
             <ul>
               {sidebarMenuItems.map((item) => (
                 <li
-                  className="flex justify-start items-center gap-4  hover:bg-gray-600 rounded-full px-5 py-2 w-fit cursor-pointer transition-all mt-2"
+                  className="flex justify-start items-center gap-4  hover:bg-gray-600 rounded-full px-3 py-2 w-fit cursor-pointer transition-all mt-2"
                   key={item.title}
                 >
-                  <span>{item.icon}</span>
+                  <span className="text-3xl">{item.icon}</span>
                   <span>{item.title}</span>
                 </li>
               ))}
@@ -58,7 +56,13 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="col-span-6 border-r-[1px] border-l-[1px] border-gray-400"></div>
+        <div className="col-span-5 border-r-[1px] border-l-[1px] h-screen overflow-scroll  border-gray-600">
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+        </div>
         <div className="col-span-3 "></div>
       </div>
     </div>
